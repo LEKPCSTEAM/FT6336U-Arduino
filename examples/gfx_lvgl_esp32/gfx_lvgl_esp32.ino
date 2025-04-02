@@ -1,7 +1,7 @@
 /*Using LVGL with Arduino requires some extra steps:
  *Be sure to read the docs here: https://docs.lvgl.io/master/get-started/platforms/arduino.html  */
 
-#include <lvgl.h>  // V.8.3.11
+#include <lvgl.h> // V.8.3.11
 
 /*To use the built-in examples and demos of LVGL uncomment the includes below respectively.
  *You also need to copy `lvgl/examples` to `lvgl/src/examples`. Similarly for the demos `lvgl/demos` to `lvgl/src/demos`.
@@ -57,6 +57,7 @@ Arduino_GFX *gfx = new Arduino_ILI9341(bus, DF_GFX_RST, 0 /* rotation */, false 
  * Please config the touch panel in FT6336U.h
  ******************************************************************************/
 #include <FT6336U.h>
+FT6336U touch(8, 9);
 
 uint32_t screenWidth;
 uint32_t screenHeight;
@@ -138,10 +139,10 @@ void my_touchpad_read(lv_indev_drv_t *indev_driver, lv_indev_data_t *data)
                 data->point.y = touchY;
                 break;
             }
-            // Serial.print("Touch X: ");
-            // Serial.print(data->point.x);
-            // Serial.print(" Touch Y: ");
-            // Serial.println(data->point.y);
+            Serial.print("Touch X: ");
+            Serial.print(data->point.x);
+            Serial.print(" Touch Y: ");
+            Serial.println(data->point.y);
         }
     }
 }
