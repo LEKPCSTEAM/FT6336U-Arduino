@@ -9,7 +9,7 @@
 class FT6336U
 {
 public:
-    FT6336U(uint8_t sda_pin, uint8_t scl_pin );
+    FT6336U(uint8_t sda_pin, uint8_t scl_pin);
     bool begin();
     uint8_t getNumTouches();
     bool getTouchCoordinates(uint16_t &x, uint16_t &y);
@@ -28,6 +28,9 @@ private:
     static const uint8_t FT6336U_REG_TOUCH1_XL = 0x04;
     static const uint8_t FT6336U_REG_TOUCH1_YH = 0x05;
     static const uint8_t FT6336U_REG_TOUCH1_YL = 0x06;
+
+    uint8_t _sdaPin;
+    uint8_t _sclPin;
 };
 
 #endif
