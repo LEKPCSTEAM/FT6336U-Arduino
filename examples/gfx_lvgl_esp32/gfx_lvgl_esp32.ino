@@ -46,7 +46,7 @@ Arduino_GFX *gfx = create_default_Arduino_GFX();
 Arduino_DataBus *bus = create_default_Arduino_DataBus();
 
 /* More display class: https://github.com/moononournation/Arduino_GFX/wiki/Display-Class */
-Arduino_GFX *gfx = new Arduino_ILI9341(bus, DF_GFX_RST, 0 /* rotation */, false /* IPS */);
+Arduino_GFX *gfx = new Arduino_ST7796(bus, DF_GFX_RST, 0 /* rotation */, false /* IPS */);
 
 #endif /* !defined(DISPLAY_DEV_KIT) */
 /*******************************************************************************
@@ -57,7 +57,7 @@ Arduino_GFX *gfx = new Arduino_ILI9341(bus, DF_GFX_RST, 0 /* rotation */, false 
  * Please config the touch panel in FT6336U.h
  ******************************************************************************/
 #include <FT6336U.h>
-FT6336U touch(8, 9);
+FT6336U touch(15, 16);
 
 uint32_t screenWidth;
 uint32_t screenHeight;
