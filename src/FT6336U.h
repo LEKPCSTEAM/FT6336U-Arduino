@@ -5,7 +5,6 @@
 #include <Arduino.h>
 #include <Wire.h>
 
-/* สำหรับจอที่ใช้ชิปทัช FT6336U */
 class FT6336U
 {
 public:

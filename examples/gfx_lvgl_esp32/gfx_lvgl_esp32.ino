@@ -190,7 +190,10 @@ void setup()
 #endif
 
     // Init touch device
-    touch_init(gfx->width(), gfx->height(), gfx->getRotation());
+    if (touch.begin())
+    {
+        Serial.println("Touch FT6336U init Success! ");
+    }
 
     lv_init();
 
@@ -248,14 +251,7 @@ void setup()
         indev_drv.type = LV_INDEV_TYPE_POINTER;
         indev_drv.read_cb = my_touchpad_read;
         lv_indev_drv_register(&indev_drv);
-        _align(label, LV_ALIGN_CENTER, 0, 0);
 
-        /* Option 2: Try an example. See all the examples
-         * online: https://docs.lvgl.io/master/examples.html
-         * source codes: https://github.com/lvgl/lvgl/tree/e7f88efa5853128bf871dde335c0ca8da9eb7731/examples */
-        // lv_example_btn_1();
-
-        /* Option 3: Or try out a demo. Don't forget to enable the demos in lv_conf.h. E.g. LV_USE_DEMOS_WIDGETS*/
         // lv_demo_widgets();
         // lv_demo_benchmark();
         // lv_demo_keypad_encoder();

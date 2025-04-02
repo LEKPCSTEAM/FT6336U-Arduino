@@ -4,6 +4,7 @@ FT6336U::FT6336U(uint8_t sda_pin, uint8_t scl_pin) {
     _sdaPin = sda_pin;
     _sclPin = scl_pin;
 }
+
 bool FT6336U::begin() {
     Wire.begin(_sdaPin, _sclPin, (uint32_t) 400E3);
     Wire.beginTransmission(FT6336U_I2C_ADDR);
