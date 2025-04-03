@@ -109,8 +109,7 @@ void my_touchpad_read(lv_indev_drv_t *indev_driver, lv_indev_data_t *data)
 
         if (touch.getTouchCoordinates(touchX, touchY))
         {
-            // ตรวจสอบการหมุนหน้าจอ
-            uint8_t rotation = gfx->getRotation(); // ฟังก์ชันที่กำหนดค่าการหมุนหน้าจอ (0, 1, 2, 3)
+            uint8_t rotation = gfx->getRotation(); // (0, 1, 2, 3)
             // Serial.println(rotation);
             switch (rotation)
             {
@@ -130,7 +129,7 @@ void my_touchpad_read(lv_indev_drv_t *indev_driver, lv_indev_data_t *data)
                 break;
 
             case 3: // Rotate 270 degrees
-                data->point.x = screenHeight - touchY;
+                data->point.x = screenWidth - touchY;
                 data->point.y = touchX;
                 break;
 
